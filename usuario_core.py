@@ -18,6 +18,10 @@ class User:		# aqui está lo que tenemos hasta ahora
         return self.account_balance
         
     def hacer_retiro(self,amount):
+        if self.account_balance < amount:
+            print(f"Operacion no realizada, saldo insuficiente: {self.account_balance} ")
+            self.printlog(f"Operacion no realizada, saldo insuficiente: {self.account_balance}")
+            return self
         self.account_balance -= amount
         self.printlog(self.name)
         self.printlog(str(self.account_balance))
@@ -29,6 +33,11 @@ class User:		# aqui está lo que tenemos hasta ahora
         return s
     
     def tranferencia(self,otro_usuario,cantidad):
+        if self.account_balance < cantidad:
+            print(f"Operacion no realizada, saldo insuficiente: {self.account_balance} ")
+            self.printlog(f"Operacion no realizada, saldo insuficiente: {self.account_balance}")
+            return self
+
         self.account_balance -= cantidad
         otro_usuario.account_balance += cantidad
         self.printlog(self.name)
@@ -67,7 +76,7 @@ print(jp.muestra_saldo())
 
 print("retiro1")
 jp.printlog("retiro1")
-jp.hacer_retiro(300)
+jp.hacer_retiro(2500)
 print(jp.muestra_saldo())
 print("")
 jp.printlog("")
@@ -124,5 +133,5 @@ print(f"Transferencia {jp.name} a {ib.name} ----->")
 jp.printlog(f"Transferencia {jp.name} a {ib.name} ----->")
 jp.tranferencia(ib,500)
 print(f"Saldo {jp.name}:{jp.account_balance} -",f"Saldo {ib.name}:{ib.account_balance}")
-jp.printlog(str(f"Saldo {jp.name}:{jp.account_balance} -",f"Saldo {ib.name}:{ib.account_balance}"))
+jp.printlog(f"Saldo {jp.name}:{jp.account_balance} - Saldo {ib.name}:{ib.account_balance}")
 
