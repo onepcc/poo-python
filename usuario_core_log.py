@@ -3,14 +3,7 @@
 
 import logging
 logging.basicConfig(filename='log2.txt', filemode='a', format='%(message)s - %(asctime)s',datefmt='%d-%m-%Y %H:%M:%S')
-# logging.basicConfig(filename='logger.txt', filemode='a', format='%(message)s - %(asctime)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.DEBUG)
 
-# logging.warning('is when this event was logged.')
-# logging.debug('This is a debug message')
-# logging.info('This is an info message')
-# logging.warning('This is a warning message')
-# logging.error('This is an error message')
-# logging.critical('This is a critical message')
 
 # make_withdrawal (self, amount) : haz que este método disminuya el saldo del usuario en la cantidad especificada
 # display_user_balance (self) : haz que este método imprima el nombre del usuario y el saldo de la cuenta en el terminal

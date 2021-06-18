@@ -17,6 +17,7 @@
 #  En la segunda cuenta, realice 2 depósitos y 4 retiros, luego calcule los intereses y muestre la información de la cuenta en una sola línea de código (es decir, encadenamiento)
 import logging
 logging.basicConfig(filename='cuenta.txt', filemode='a', format='%(message)s a las %(asctime)s',datefmt='%d-%m-%Y %H:%M:%S')
+
 class CuentaBancaria:
     def __init__(self, intereses=0.01, saldo=0):
         self.saldo=saldo
