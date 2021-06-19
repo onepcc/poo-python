@@ -1,5 +1,5 @@
 import logging
-logging.basicConfig(filename='usr_bk_log.txt', filemode='a', format='%(message)s            ----           %(asctime)s',datefmt='%d-%m-%Y %H:%M:%S')
+logging.basicConfig(filename='cuenta_usr.txt', filemode='a', format='%(asctime)s ---> %(message)s',datefmt='%d-%m-%Y %H:%M:%S')
 
 # Actualiza el metodo __init__ de la clase User
 #  Actualiza el metodo make_deposit de la clase User
@@ -17,8 +17,8 @@ class User:		# aqui está lo que tenemos hasta ahora
     # agrega el método deposit
    
     def abrir_cuenta(self, nombre, intereses, saldo):
-        self.nombre= CuentaBancaria(intereses, saldo)
-        self.cuentas[nombre] = self.nombre 
+        nueva= CuentaBancaria(intereses, saldo)
+        self.cuentas[nombre] = nueva 
         return self
     
     def hacer_deposito(self, cuenta,cantidad):	# toma un argumento que es el monto del depósito
@@ -56,28 +56,26 @@ class User:		# aqui está lo que tenemos hasta ahora
         self.printlog(f"Saldo {self.name} cuenta {cuenta}: ${self.cuentas[cuenta].saldo} - Saldo {otro_usuario.name} cuenta {otro_usuario_cuenta}: ${otro_usuario.cuentas[otro_usuario_cuenta].saldo}")
         return self
 
+#Se muestra el saldo en todas las cuentas, se puede hacer otra funcion para mostrar solo el saldo de una cuenta
+#Igual con los intereses
     def muestra_saldo(self):
         for cuenta, valor in self.cuentas.items():
             # print(f"{self.name}",end=" - ")
             # self.cuentas[cuenta].informacion_cuenta()
-            print(f"""*****************************************************************
-{self.name} - Saldo en cuenta {cuenta}: ${self.cuentas[cuenta].saldo}
-*****************************************************************""")
-            self.printlog(f"""*****************************************************************
-{self.name} - Saldo en cuenta {cuenta}: ${self.cuentas[cuenta].saldo}
-*****************************************************************""")
+            print(f"""{self.name} - Saldo en cuenta {cuenta}: ${self.cuentas[cuenta].saldo}
+*************************************************************************************""")
+            self.printlog(f"""{self.name} - Saldo en cuenta {cuenta}: ${self.cuentas[cuenta].saldo}
+*************************************************************************************""")
         return self
 
     def muestraintereses(self):
         for cuenta in self.cuentas:
             if self.cuentas[cuenta].saldo > 0:
                 self.cuentas[cuenta].intereses_ganados()
-                print(f"""*****************************************************************
-                {self.name} - Intereses ganados en cuenta {cuenta} = $ {self.cuentas[cuenta].saldo*self.cuentas[cuenta].intereses}
-                *****************************************************************""")
-                self.printlog(f"""*****************************************************************
-                {self.name} - Intereses ganados en cuenta {cuenta} = $ {self.cuentas[cuenta].saldo*self.cuentas[cuenta].intereses}
-                *****************************************************************""")
+                print(f"""{self.name} - Intereses ganados en cuenta {cuenta} = $ {self.cuentas[cuenta].saldo*self.cuentas[cuenta].intereses}
+*************************************************************************************""")
+                self.printlog(f"""{self.name} - Intereses ganados en cuenta {cuenta} = $ {self.cuentas[cuenta].saldo*self.cuentas[cuenta].intereses}
+*************************************************************************************""")
             else:
                 print(f"{self.name} - cuenta {cuenta} No gano intereses")
                 self.printlog(f"{self.name} - cuenta {cuenta} No gano intereses")
@@ -127,7 +125,6 @@ jp.abrir_cuenta("vista",0.01,500)
 
 for x, y in jp.cuentas.items():
   print(x, y,sep=": ")
-# print(list(jp.cuentas))
 
 
 
