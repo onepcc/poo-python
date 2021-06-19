@@ -117,109 +117,110 @@ class CuentaBancaria:
     # def printlog(self,operacion):
     #     logging.warning(operacion)
 
-# crea 3 instancias de User
-#Cuando se crea la instancia no se pasa el self
-jp = User("Juan Pablo", "jp12345@gmail.com")
-jp.abrir_cuenta("nomina",0.02,20)
-jp.abrir_cuenta("vista",0.01,500)
+if __name__ == "__main__":
+    # crea 3 instancias de User
+    #Cuando se crea la instancia no se pasa el self
+    jp = User("Juan Pablo", "jp12345@gmail.com")
+    jp.abrir_cuenta("nomina",0.02,20)
+    jp.abrir_cuenta("vista",0.01,500)
 
-for x, y in jp.cuentas.items():
-  print(x, y,sep=": ")
-
-
-
-mb = User("Maribel Astrid","maribel12345@gmail.com")
-mb.abrir_cuenta("nomina",0.02,20)
-mb.abrir_cuenta("vista",0.01,500)
-
-ib = User("Isabella Castillo", "icc12345@gmail.cl")
-ib.abrir_cuenta("vista",0.01,500)
-
-#funcion para imprimir en consola y guardar en log
-def imprimelog(usuario_cuenta,mensaje):
-    "Imprime y loggea fuera de las clases"
-    print(f"{usuario_cuenta.name} - {mensaje}")
-    usuario_cuenta.printlog(f"{usuario_cuenta.name} - {mensaje}")
-
-#Haz que el primer usuario haga 3 depósitos y 1 retiro y luego muestre su saldo
-imprimelog(jp,"Inicio")
-jp.muestra_saldo()
-
-imprimelog(jp,"Deposito 1")
-jp.hacer_deposito("nomina",500)
-jp.hacer_deposito("vista",200)
-
-imprimelog(jp,"Deposito 2")
-jp.hacer_deposito("ahorros",100)
-
-imprimelog(jp,"Deposito 3")
-jp.hacer_deposito("vista",300)
-jp.muestra_saldo()
-
-imprimelog(jp,"Retiro 1")
-jp.hacer_retiro("vista",250)
-jp.hacer_retiro("nomina",650)
-jp.hacer_retiro("ahorros",250)
-jp.muestra_saldo()
-print("Cambio de usuario")
-jp.printlog("Cambio de usuario")
-
-#Haz que el segundo usuario haga 2 depósitos y 2 retiros y luego muestre su saldo
-imprimelog(mb,"Inicio")
-mb.muestra_saldo()
-
-imprimelog(mb,"Deposito 1")
-mb.hacer_deposito("ahorros",500)
-mb.hacer_deposito("nomina",50)
-mb.hacer_deposito("vista",80)
-
-imprimelog(mb,"Deposito 2")
-mb.hacer_deposito("ahorros",100)
-mb.hacer_deposito("nomina",100)
-mb.hacer_deposito("vista",100)
-mb.muestra_saldo()
-
-imprimelog(mb,"Retiro 1")
-mb.hacer_retiro("ahorros",300)
-mb.hacer_retiro("nomina",300)
-mb.hacer_retiro("vista",30)
-
-imprimelog(mb,"Retiro 2")
-mb.hacer_retiro("ahorros",100)
-mb.hacer_retiro("nomina",1000)
-mb.hacer_retiro("vista",200)
-mb.muestra_saldo()
-print("Cambio de usuario")
-jp.printlog("Cambio de usuario")
-
-#Haz que el tercer usuario haga 1 depósitos y 3 retiros y luego muestre su saldo
-imprimelog(ib,"Inicio")
-ib.muestra_saldo()
-
-imprimelog(ib,"Deposito 1")
-ib.hacer_deposito("ahorros",2500)
-ib.hacer_deposito("vista",250)
-
-imprimelog(ib,"Retiro 1")
-ib.hacer_retiro("ahorros",310)
-
-imprimelog(ib,"Retiro 2")
-ib.hacer_retiro("vista",40)
-
-imprimelog(ib,"Retiro 3")
-ib.hacer_retiro("ahorros",580)
-ib.muestra_saldo()
-print("Cambio de usuario")
-jp.printlog("Cambio de usuario")
-
-#BONIFICACIÓN: Agrega un método transfer_money; haga que el primer usuario transfiera dinero al tercer usuario
-# y luego imprima los saldos de ambos usuarios
-# print(f"Transferencia {jp.name} a {ib.name} ----->")
-# jp.printlog(f"Transferencia {jp.name} a {ib.name} ----->")
-jp.tranferencia("ahorros",ib,"ahorros",500)
+    for x, y in jp.cuentas.items():
+        print(x, y,sep=": ")
 
 
-jp.hacer_deposito("nomina",200).hacer_deposito("nomina",100).hacer_retiro("nomina",80).muestraintereses().muestra_saldo()
-mb.hacer_deposito("nomina",2000).tranferencia("nomina",ib,"ahorros",650).hacer_retiro("ahorros",80).hacer_retiro("nomina",800).hacer_retiro("vista",200).hacer_retiro("nomina",80).muestraintereses().muestra_saldo()
 
-logging.warning("Fin ejecucion ")
+    mb = User("Maribel Astrid","maribel12345@gmail.com")
+    mb.abrir_cuenta("nomina",0.02,20)
+    mb.abrir_cuenta("vista",0.01,500)
+
+    ib = User("Isabella Castillo", "icc12345@gmail.cl")
+    ib.abrir_cuenta("vista",0.01,500)
+
+    #funcion para imprimir en consola y guardar en log
+    def imprimelog(usuario_cuenta,mensaje):
+        "Imprime y loggea fuera de las clases"
+        print(f"{usuario_cuenta.name} - {mensaje}")
+        usuario_cuenta.printlog(f"{usuario_cuenta.name} - {mensaje}")
+
+    #Haz que el primer usuario haga 3 depósitos y 1 retiro y luego muestre su saldo
+    imprimelog(jp,"Inicio")
+    jp.muestra_saldo()
+
+    imprimelog(jp,"Deposito 1")
+    jp.hacer_deposito("nomina",500)
+    jp.hacer_deposito("vista",200)
+
+    imprimelog(jp,"Deposito 2")
+    jp.hacer_deposito("ahorros",100)
+
+    imprimelog(jp,"Deposito 3")
+    jp.hacer_deposito("vista",300)
+    jp.muestra_saldo()
+
+    imprimelog(jp,"Retiro 1")
+    jp.hacer_retiro("vista",250)
+    jp.hacer_retiro("nomina",650)
+    jp.hacer_retiro("ahorros",250)
+    jp.muestra_saldo()
+    print("Cambio de usuario")
+    jp.printlog("Cambio de usuario")
+
+    #Haz que el segundo usuario haga 2 depósitos y 2 retiros y luego muestre su saldo
+    imprimelog(mb,"Inicio")
+    mb.muestra_saldo()
+
+    imprimelog(mb,"Deposito 1")
+    mb.hacer_deposito("ahorros",500)
+    mb.hacer_deposito("nomina",50)
+    mb.hacer_deposito("vista",80)
+
+    imprimelog(mb,"Deposito 2")
+    mb.hacer_deposito("ahorros",100)
+    mb.hacer_deposito("nomina",100)
+    mb.hacer_deposito("vista",100)
+    mb.muestra_saldo()
+
+    imprimelog(mb,"Retiro 1")
+    mb.hacer_retiro("ahorros",300)
+    mb.hacer_retiro("nomina",300)
+    mb.hacer_retiro("vista",30)
+
+    imprimelog(mb,"Retiro 2")
+    mb.hacer_retiro("ahorros",100)
+    mb.hacer_retiro("nomina",1000)
+    mb.hacer_retiro("vista",200)
+    mb.muestra_saldo()
+    print("Cambio de usuario")
+    jp.printlog("Cambio de usuario")
+
+    #Haz que el tercer usuario haga 1 depósitos y 3 retiros y luego muestre su saldo
+    imprimelog(ib,"Inicio")
+    ib.muestra_saldo()
+
+    imprimelog(ib,"Deposito 1")
+    ib.hacer_deposito("ahorros",2500)
+    ib.hacer_deposito("vista",250)
+
+    imprimelog(ib,"Retiro 1")
+    ib.hacer_retiro("ahorros",310)
+
+    imprimelog(ib,"Retiro 2")
+    ib.hacer_retiro("vista",40)
+
+    imprimelog(ib,"Retiro 3")
+    ib.hacer_retiro("ahorros",580)
+    ib.muestra_saldo()
+    print("Cambio de usuario")
+    jp.printlog("Cambio de usuario")
+
+    #BONIFICACIÓN: Agrega un método transfer_money; haga que el primer usuario transfiera dinero al tercer usuario
+    # y luego imprima los saldos de ambos usuarios
+    # print(f"Transferencia {jp.name} a {ib.name} ----->")
+    # jp.printlog(f"Transferencia {jp.name} a {ib.name} ----->")
+    jp.tranferencia("ahorros",ib,"ahorros",500)
+
+
+    jp.hacer_deposito("nomina",200).hacer_deposito("nomina",100).hacer_retiro("nomina",80).muestraintereses().muestra_saldo()
+    mb.hacer_deposito("nomina",2000).tranferencia("nomina",ib,"ahorros",650).hacer_retiro("ahorros",80).hacer_retiro("nomina",800).hacer_retiro("vista",200).hacer_retiro("nomina",80).muestraintereses().muestra_saldo()
+
+    logging.warning("Fin ejecucion ")

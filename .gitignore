@@ -1,1 +1,4 @@
 *.txt
+/modular
+/tienda_productos
+__pycache__
