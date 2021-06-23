@@ -36,6 +36,7 @@ class IsEvenTests(unittest.TestCase):
     #  cualquier tarea que desee ejecutar antes de ejecutar cualquier método anterior, colóquelas en el método setUp 
     def setUp(self):
         # agrega las tareas setUp 
+        md = MathDojo()
         md.result = 0
         print(f"Ejecutando prueba con valor inicial = {md.result}")
     # cualquier tarea que quieras ejecutar después de ejecutar las pruebas, ponlas en el método
